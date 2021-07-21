@@ -55,14 +55,17 @@ func getheader(url string) (h *header.Header, err error) {
 }
 
 func (c *controller) Run(ctx context.Context) {
+	appError := tgbotapi.NewMessage(c.id, "App error")
 	for {
 		h1, err := getheader(c.local)
 		if err != nil {
+			c.bot.Send(appError)
 			log.Printf("Error acessing the %s", c.local)
 			return
 		}
 		h2, err := getheader(c.remote)
 		if err != nil {
+			c.bot.Send(appError)
 			log.Printf("Error acessing the %s", c.remote)
 			return
 		}

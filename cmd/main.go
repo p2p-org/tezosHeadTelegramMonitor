@@ -1,11 +1,20 @@
 package main
 
-import "tezos_node_exporter/internal/header"
+import (
+	"context"
+
+	controller "tezos_node_exporter/internal/controller"
+)
+
+const (
+	postfix = "/chains/main/blocks/head"
+	local   = "http://localhost:8732" + postfix
+	remote  = "https://mainnet-tezos.giganode.io"
+	chat_id = 666
+)
 
 func main() {
-	var h *header.Header
-
-	for {
-
-	}
+	c := controller.NewController(local, remote, chat_id)
+	c.Run(context.TODO())
+	panic("should not exit")
 }
