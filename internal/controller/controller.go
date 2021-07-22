@@ -63,7 +63,9 @@ func (c *controller) Run(ctx context.Context) {
 			log.Printf("Error acessing the %s", c.local)
 			return
 		}
+		log.Printf("%v", h1)
 		h2, err := getheader(c.remote)
+		log.Printf("%v", h2)
 		if err != nil {
 			c.bot.Send(appError)
 			log.Printf("Error acessing the %s", c.remote)
