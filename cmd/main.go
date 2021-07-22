@@ -9,7 +9,7 @@ import (
 const (
 	postfix = "/chains/main/blocks/head"
 	local   = "http://localhost:8732" + postfix
-	remote  = "https://mainnet-tezos.giganode.io"
+	remote  = "https://mainnet-tezos.giganode.io" + postfix
 	chat_id = 320767500
 )
 
