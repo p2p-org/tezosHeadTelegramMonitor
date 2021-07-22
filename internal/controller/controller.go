@@ -78,6 +78,7 @@ func (c *controller) Run(ctx context.Context) {
 			}
 			log.Println("Some desync detected")
 		}
+		time.Sleep(time.Minute * time.Duration(5))
 	}
 }
 
