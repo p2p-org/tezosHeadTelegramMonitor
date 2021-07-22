@@ -69,7 +69,7 @@ func (c *controller) Run(ctx context.Context) {
 			log.Printf("Error acessing the %s", c.remote)
 			return
 		}
-		if h1.Timestamp.Sub(h2.Timestamp).Microseconds() > time.Minute.Microseconds() {
+		if h1.Timestamp.Sub(h2.Timestamp).Milliseconds() > time.Minute.Milliseconds() {
 			// alert takes place
 			m := tgbotapi.NewMessage(c.id, "desync detected")
 			_, err = c.bot.Send(m)
